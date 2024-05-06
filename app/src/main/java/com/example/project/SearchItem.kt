@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
+import android.widget.SearchView
 import android.widget.Toast
 
 // TODO: Rename parameter arguments, choose names that match
@@ -20,8 +20,8 @@ private const val ARG_PARAM2 = "param2"
 class SearchItem : Fragment() {
 
 
-    private lateinit var etSearchedFood : EditText
     private lateinit var btnSearch : Button
+    private lateinit var svSearchedFood : SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,12 +50,12 @@ class SearchItem : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        etSearchedFood = view.findViewById(R.id.etSearchItem)
         btnSearch = view.findViewById(R.id.btnSearch)
+        svSearchedFood = view.findViewById(R.id.svSearchedFood)
 
         btnSearch.setOnClickListener(){
 
-            var desiredFoodString = etSearchedFood.text.toString()
+            var desiredFoodString = svSearchedFood.query.toString()
 
             if (desiredFoodString.isNullOrBlank()){
                 Toast.makeText(context, "Please enter a food to search calories for", Toast.LENGTH_LONG).show()
