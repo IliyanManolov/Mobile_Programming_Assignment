@@ -55,7 +55,7 @@ class SearchItem : Fragment() {
 
         btnSearch.setOnClickListener(){
 
-            var desiredFoodString = svSearchedFood.query.toString()
+            val desiredFoodString = svSearchedFood.query.toString()
 
             if (desiredFoodString.isNullOrBlank()){
                 Toast.makeText(context, "Please enter a food to search calories for", Toast.LENGTH_LONG).show()
@@ -67,11 +67,11 @@ class SearchItem : Fragment() {
     }
 
     private fun gotoUrl(desiredFood: String) {
-        var desiredFoodUrl = desiredFood.split(" ").joinToString("+")
+        val desiredFoodUrl = desiredFood.split(" ").joinToString("+")
 
-        val baseUrlString : String = "https://www.nutracheck.co.uk/CaloriesIn/Product/Search?desc="
+        val baseUrlString = "https://www.nutracheck.co.uk/CaloriesIn/Product/Search?desc="
 
-        var uri : Uri = Uri.parse(baseUrlString + desiredFoodUrl)
+        val uri : Uri = Uri.parse(baseUrlString + desiredFoodUrl)
 
         startActivity(Intent(Intent.ACTION_VIEW, uri))
     }
